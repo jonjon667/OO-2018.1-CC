@@ -1,0 +1,6 @@
+André;andreabenf@gmail.com;1500;
+Lucas;zezinho@gmail.com;150.5;
+Davi;wtf@gmail.com;500;
+Leo;Topzera@gmail.com;2000;
+Gabriel;Saidaq@gmail.com;150.6;
+Mano;uemano@gmail.com;900;

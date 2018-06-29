@@ -1,0 +1,32 @@
+package Background;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Despesa {
+	private String nomeCategoria;
+	private List<SubRendimento> subs = new ArrayList<SubRendimento>();
+	
+	
+	public double getTotalDespesas() {
+		double totalDespesas =0;
+		for(int i=0;i<subs.size();i++ ) {
+			totalDespesas+=subs.get(i).getVlaor();
+		}
+		return totalDespesas;
+		
+	}
+	
+	public void  AddSub(SubRendimento oi) {
+		subs.add(oi);
+		
+	}
+	
+	public String getNomeCategoria() {
+		return nomeCategoria;
+	}
+	public void setNome(String nome) {
+		this.nomeCategoria = nome;
+	}
+
+}
