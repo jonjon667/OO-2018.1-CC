@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
 import javax.swing.JTextPane;
 import java.awt.TextArea;
+import java.awt.Button;
+import java.awt.Font;
 
 public class MenuP extends JFrame {
 	String texto = "";
@@ -48,11 +50,6 @@ public class MenuP extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(411, 112, 21, 48);
-		contentPane.add(scrollBar);
-		
 		JButton btnNewButton = new JButton("Add Categoria");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -82,11 +79,8 @@ public class MenuP extends JFrame {
 		btnNewButton_3.setBounds(12, 310, 217, 53);
 		contentPane.add(btnNewButton_3);
 		
-		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setBounds(288, 154, 6, 22);
-		contentPane.add(textPane_1);
-		
 		TextArea textArea = new TextArea();
+		textArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 17));
 		textArea.setText("            Moradores cadastrados \n");
 		textArea.setEditable(false);
 		textArea.setBounds(313, 20, 440, 343);
@@ -104,6 +98,32 @@ public class MenuP extends JFrame {
 		});
 		btnAddMorador.setBounds(12, 0, 217, 72);
 		contentPane.add(btnAddMorador);
+		
+		JButton btnNewButton_4 = new JButton("Carregar arquivos");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				App.gravarDoTxt();
+				int i=0;
+				for(i=0; i<App.rep.getNumPessoas();i++) {
+				String t = App.rep.pessoa.get(i).getNome() + "\nEmail:" + App.rep.pessoa.get(i).getEmail() + "\nRenda:"
+						+ App.rep.pessoa.get(i).getRendimentoMensal() + "\n////////////////////\n";
+				texto += t;
+				textArea.setText(texto);
+				}
+				}
+				
+		});
+		btnNewButton_4.setBounds(12, 376, 217, 47);
+		contentPane.add(btnNewButton_4);
+		
+		JButton btnNewButton_5 = new JButton("Gravar cadastros");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				App.gravarNoArquivo();
+			}
+		});
+		btnNewButton_5.setBounds(311, 369, 442, 54);
+		contentPane.add(btnNewButton_5);
 		
 	}
 	private void modPane(String string) {

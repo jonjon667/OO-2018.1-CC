@@ -2,6 +2,7 @@ package Running;
 import java.io.FileWriter;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -100,9 +101,38 @@ public class App {
 	}
 
 
-	/*private static boolean gravarNoTxt() {
+	public static boolean gravarNoArquivo() {
+		boolean resposta = false;
+		FileWriter arquivo = null;
+		try {
+			arquivo = new FileWriter("moradores.txt");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		BufferedWriter buffer = new BufferedWriter(arquivo);
+		for(int i=0;i<rep.getNumPessoas();i++) {
+			String str = "";
+			str += rep.pessoa.get(i).getNome()+";";
+			str += rep.pessoa.get(i).getEmail()+";";
+			str += rep.pessoa.get(i).getRendimentoMensal() +";";
+			try {
+				buffer.write(str);
+				buffer.newLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		
-	}*/
+		try {
+			buffer.close();
+			resposta = true;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return resposta;
+}
 
 
 	public static boolean gravarDoTxt() {
